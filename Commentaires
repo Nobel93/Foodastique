@@ -1,0 +1,22 @@
+1) Quel est le titre de l'application ?
+
+2) Décrire en quelques lignes quel est l'objectif de cette application.
+  Cette description doit être "vendeuse". 
+  Inspirez-vous de la description d'une application sur Google Play Store.
+  
+3) Le chapitre "fonctionnalités" n'est pas un manuel utilisateur.
+  Suivre le plan: 
+    - Fonctionnalité 1
+      Description de la fonctionnalité 1
+    - Fonctionnalité 2
+      Description de la fonctionnalité 2
+    - etc.
+    
+4) Concernant le mockup, on ne voit pas très bien comment on navigue dans l'application.
+
+5) Le document Foodastique n'est pas lisible.
+
+6) Concernant le MCD, comme plusieurs recette peuvent avoir le même auteur,
+  il serait judicieux de créer une entité "Auteur"
+  
+7) Mettre le script de création de la base de données.
