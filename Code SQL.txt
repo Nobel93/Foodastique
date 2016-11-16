@@ -1,0 +1,67 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: Recettes
+#------------------------------------------------------------
+
+CREATE TABLE Recettes(
+        ID_Recette  Int NOT NULL ,
+        Nom         Varchar (25) NOT NULL ,
+        Auteur      Varchar (25) NOT NULL ,
+        Note        Int ,
+        Description Varchar (25) ,
+        Date_Crea   Date NOT NULL ,
+        PRIMARY KEY (ID_Recette )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Ingrédients
+#------------------------------------------------------------
+
+CREATE TABLE Ingredients(
+        ID_Ingredient Int NOT NULL ,
+        Nom           Varchar (25) NOT NULL ,
+        PRIMARY KEY (ID_Ingredient )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Tags
+#------------------------------------------------------------
+
+CREATE TABLE Tags(
+        ID_Tags   Int NOT NULL ,
+        Categorie Varchar (25) NOT NULL ,
+        PRIMARY KEY (ID_Tags )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Identifier
+#------------------------------------------------------------
+
+CREATE TABLE Identifier(
+        ID_Recette Int NOT NULL ,
+        ID_Tags    Int NOT NULL ,
+        PRIMARY KEY (ID_Recette ,ID_Tags )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: contenir
+#------------------------------------------------------------
+
+CREATE TABLE contenir(
+        ID_Recette    Int NOT NULL ,
+        ID_Ingredient Int NOT NULL ,
+        PRIMARY KEY (ID_Recette ,ID_Ingredient )
+)ENGINE=InnoDB;
+
+ALTER TABLE Identifier ADD CONSTRAINT FK_Identifier_ID_Recette FOREIGN KEY (ID_Recette) REFERENCES Recettes(ID_Recette);
+ALTER TABLE Identifier ADD CONSTRAINT FK_Identifier_ID_Tags FOREIGN KEY (ID_Tags) REFERENCES Tags(ID_Tags);
+ALTER TABLE contenir ADD CONSTRAINT FK_contenir_ID_Recette FOREIGN KEY (ID_Recette) REFERENCES Recettes(ID_Recette);
+ALTER TABLE contenir ADD CONSTRAINT FK_contenir_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredients(ID_Ingredient);
